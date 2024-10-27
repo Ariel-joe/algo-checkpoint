@@ -16,51 +16,39 @@
 
 // function one, counting the characters in a sentence.
 const Counter = (sentence) => {
-
     let char = sentence.split('');
     let words = sentence.trim().split(/\s+/).filter(word => word.length > 0);
-    let vowels = 'aeiou'
+    let vowels = 'aeiou';
 
-    // function to count characters.
-    function countChars () {
-
-    let charCounter = 0;    
-
-    for(let i = 0; i < char.length; i++) {
-        charCounter++
-    }
-    return charCounter;
+    function countChars() {
+        let charCounter = 0;    
+        for (let i = 0; i < char.length; i++) {
+            charCounter++;
+        }
+        return charCounter;
     }
 
-
-    // function to count words.
     function countWords() {
-
-    
         let wordCount = words.length;
-    
         return wordCount;
     }
 
-
-    // function to count vowels
-    function countVowels () {
+    function countVowels() {
         let vowelCounter = 0;
-
-    for (let i = 0; i < char.length; i++) {
-
-        if (vowels.includes(sentence[i].toLowerCase())) {
-            vowelCounter++; 
+        for (let i = 0; i < char.length; i++) {
+            if (vowels.includes(char[i].toLowerCase())) { 
+                vowelCounter++; 
+            }
         }
+        return vowelCounter;
     }
 
-    return vowelCounter;
-    }
+    let charCounter = countChars();
+    let wordCount = countWords();
+    let vowelCounter = countVowels();
 
-    countChars()
-    countWords()
-    countVowels()
-
-    console.log( `the number of characters is ${charCounter} and the words are ${wordCount}, there are ${vowelCounter} vowels in the sentence.`)
+    console.log(`The number of characters is ${charCounter}, the number of words is ${wordCount}, and there are ${vowelCounter} vowels in the sentence.`);
 }
+
+
 
